@@ -8,9 +8,13 @@ import { Datetime } from "../models/Datetime";
 import { Output } from "../models/Output";
 import { TimingContainer } from "../components/TimingContainer";
 
-import background from "./background.png";
+import background from "../images/background.png";
 
-const RootContainer = styled.div([tw`w-auto h-full`, `background-image: url(${background})`]);
+const RootContainer = styled.div([
+  tw`w-auto h-full`,
+  tw`bg-fixed bg-cover bg-center`,
+  `background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.05)), url(${background})`,
+]);
 
 const IndexPage = () => {
   const query = new URLSearchParams(window.location.search);
