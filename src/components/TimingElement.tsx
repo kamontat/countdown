@@ -37,7 +37,8 @@ const TimingElement = ({ output, size }: TimingElementProperty) => {
   return (
     <Container aria-colcount={size}>
       <GlassilyContainer>
-        <Number>{formatNumber(output.number, output.digit)}</Number> <Unit>{output.shortUnit}</Unit>
+        <Number>{formatNumber(output.number, output.digit)}</Number>
+        <Unit>{output.unit}</Unit>
       </GlassilyContainer>
     </Container>
   );
