@@ -9,6 +9,7 @@ import { Output } from "../models/Output";
 import { TimingContainer } from "../components/TimingContainer";
 
 import background from "../images/background.png";
+import { SpecialDay } from "../models/SpecialDay";
 
 const RootContainer = styled.div([
   tw`w-auto h-full`,
@@ -25,7 +26,10 @@ const IndexPage = () => {
   logger.debug("rendering");
 
   const interval = new Interval(query.get("interval") ?? "100ms");
+
+  const specialDay = new SpecialDay();
   const endDate = Datetime.new(
+    specialDay,
     query.get("end") ?? query.get("endDate") ?? "endYear",
     query.get("format") ?? query.get("formatter")
   ).ms();

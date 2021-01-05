@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Prang birthday",
+    "key": "prang-birthday",
+    "calendar": {
+      "year": -1,
+      "month": 12,
+      "date": 5,
+      "hour": 0,
+      "minute": 0,
+      "second": 0,
+      "millisecond": 0
+    }
+  },
+  {
+    "name": "Net birthday",
+    "key": "net-birthday",
+    "calendar": {
+      "month": 11,
+      "date": 8,
+      "hour": 0,
+      "minute": 0,
+      "second": 0,
+      "millisecond": 0
+    }
+  },
+  {
+    "name": "KcNt's Anniversary",
+    "key": "anniversary",
+    "calendar": {
+      "month": 1,
+      "date": 2,
+      "hour": 0,
+      "minute": 0,
+      "second": 0,
+      "millisecond": 0
+    }
+  }
+]
