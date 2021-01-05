@@ -2,7 +2,7 @@
   "name": "timing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://time.kamontat.net",
+  "homepage": "https://countdown.kamontat.net",
   "dependencies": {
     "@emotion/react": "11.1.4",
     "@emotion/styled": "11.0.0",
