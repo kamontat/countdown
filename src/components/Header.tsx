@@ -7,7 +7,7 @@ interface HeaderProperty extends Property {
 }
 
 const Header = ({ timestamp }: HeaderProperty) => {
-  return <span tw="mb-3 mr-3 text-base text-right font-mono text-white">{timestamp}</span>;
+  return <span tw="mt-4 mr-4 text-base text-right font-mono text-white">{timestamp}</span>;
 };
 
 export { Header };
