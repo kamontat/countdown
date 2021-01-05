@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Countdown (Timing)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Usage](#usage)
+  - [Date format](#date-format)
+  - [Interval format](#interval-format)
+  - [Example](#example)
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+The website already deployed to https://countdown.kamontat.net via Github Pages. This website accepted a couple of query in url as following..
 
-### `yarn start`
+1. `end` - Finish date (default = end of current year) [format](#date-format)
+2. `format` - Custom format of `end` (default = null) [format][ex-dayjs-format]
+3. `interval` - Refresh rate (default = 100 ms) [format](#interval-format)
+4. `debug` - Open debug log (default = false)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Date format
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+On date format we have special case where you can specify date with string listed below
 
-### `yarn test`
+1. `now` - current date and time
+2. `endYear` - end of current year
+3. `startYear` - beginning of current year
+4. `endMonth` - end of current month
+5. `startMonth` - beginning of current month
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Interval format
 
-### `yarn build`
+Accepted interval will be formatted as `<number><unit>` (without any space)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Accepted number is only digit without any dot (.) or comma (,)
+2. Accepted unit is `ms` (millisecond), `s` (second), `m` (minute), and `h` (hour)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Example
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. https://countdown.kamontat.net?end=endMonth&interval=10ms - count to end of current month and refresh every 10 millisecond
+2. https://countdown.kamontat.net?debug=true&end=2020-02-02&interval=1h - count to **Feb 02, 2020** and refresh every 1 hour
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- LINK -->
+[ex-dayjs-format]: https://day.js.org/docs/en/parse/string-format#list-of-all-available-parsing-tokens
