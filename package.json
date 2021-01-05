@@ -1,8 +1,14 @@
 {
-  "name": "timing",
-  "version": "0.1.0",
+  "name": "@kamontat/countdown",
+  "version": "0.1.1",
   "private": true,
+  "description": "countdown website with configuable via link query",
   "homepage": "https://countdown.kamontat.net",
+  "author": {
+    "name": "Kamontat Chantrachirathumrong",
+    "url": "https://kamontat.net",
+    "email": "developer@kamontat.net"
+  },
   "dependencies": {
     "@emotion/react": "11.1.4",
     "@emotion/styled": "11.0.0",
