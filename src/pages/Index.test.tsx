@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { IndexPage } from "./Index";
 
-test("#1", async () => {
+test("Received footer", async () => {
   render(<IndexPage />);
-  const linkElement = await screen.findByDisplayValue(/ms/);
+  const linkElement = await screen.findByText(/.*Create by.*/);
   expect(linkElement).toBeInTheDocument();
 });
