@@ -26,5 +26,5 @@ export const GlassilyContainer = styled.div([
 export const GlassilyText = tw.span`
 p-3 text-3xl lg:text-4xl
 cursor-text no-underline select-none
-font-mono leading-tight
+font-mono leading-tight text-white
 `;
