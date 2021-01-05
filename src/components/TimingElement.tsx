@@ -32,8 +32,10 @@ const Unit = styled(GlassilyText)([tw`font-bold`]);
 
 const TimingElement = ({ output, size }: TimingElementProperty) => {
   const formatNumber = (n: number, digit: number) => {
+    if (n < 0) return "-" + String(Math.abs(n)).padStart(digit, "0");
     return String(n).padStart(digit, "0");
   };
+
   return (
     <Container aria-colcount={size}>
       <GlassilyContainer>
