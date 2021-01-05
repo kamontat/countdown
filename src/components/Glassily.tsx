@@ -2,10 +2,10 @@
 import tw, { styled } from "twin.macro";
 
 export const GlassilyContainer = styled.div([
-  tw`flex justify-center items-center`,
+  tw`flex flex-col justify-center items-center`,
   tw`h-auto w-full`,
   tw`relative z-10`,
-  tw`m-4 p-10 md:p-12 lg:p-16`,
+  tw`m-4 px-10 py-6 md:px-12 md:py-8 lg:px-16 md:py-12`,
   tw`shadow-lg rounded-lg overflow-hidden`,
   `background: inherit;`,
   `&:before {

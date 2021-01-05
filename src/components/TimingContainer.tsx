@@ -27,7 +27,7 @@ const Container = tw.div`
 `;
 
 const ElementContainer = tw.div`
-  flex flex-col md:flex-row flex-1
+  flex flex-col md:flex-row flex-1 lg:max-w-screen-lg
 `;
 
 // const Container = tw.div`
