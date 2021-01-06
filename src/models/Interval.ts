@@ -7,17 +7,17 @@ class Interval {
 
   private errors: Error[];
 
-  constructor(input: string) {
-    this.amount = 0;
+  constructor(input: string | undefined | null) {
+    this.amount = -1;
     this.unit = "ms";
     this.errors = [];
 
-    const numbers = /[0-9]+/g.exec(input);
+    const numbers = /[0-9]+/g.exec(input ?? "");
     if (numbers === null || numbers.length < 1) this.errors.push(new Error(`Cannot extract number from '${input}'`));
     this.logger.debug(`step 1: extracted numbers, received %o`, numbers);
 
-    const units = /[a-z]+/g.exec(input);
-    this.logger.debug(`step 1: extracted units, received %o`, units);
+    const units = /[a-z]+/g.exec(input ?? "");
+    this.logger.debug(`step 2: extracted units, received %o`, units);
 
     if (numbers !== null) {
       const number = parseFloat(numbers[0]);
@@ -31,6 +31,11 @@ class Interval {
     }
   }
 
+  getAmount(multiply?: number): number | undefined {
+    if (this.amount === -1) return undefined;
+    else return this.amount * (multiply ?? 1);
+  }
+
   hasError() {
     return this.errors.length > 0;
   }
@@ -40,12 +45,12 @@ class Interval {
   }
 
   ms(): number | undefined {
-    if (this.hasError()) return undefined;
-    else if (this.unit === "ms" || this.unit.includes("millisecond")) return this.amount;
-    else if (this.unit === "s" || this.unit.includes("second")) return this.amount * 1_000;
-    else if (this.unit === "m" || this.unit.includes("min")) return this.amount * 60_000;
-    else if (this.unit === "h" || this.unit.includes("hour")) return this.amount * 3_600_000;
-    else return undefined;
+    if (this.hasError()) return this.getAmount();
+    else if (this.unit === "ms" || this.unit.includes("millisecond")) return this.getAmount();
+    else if (this.unit === "s" || this.unit.includes("second")) return this.getAmount(1_000);
+    else if (this.unit === "m" || this.unit.includes("min")) return this.getAmount(60_000);
+    else if (this.unit === "h" || this.unit.includes("hour")) return this.getAmount(3_600_000);
+    else return this.getAmount();
   }
 }
 
