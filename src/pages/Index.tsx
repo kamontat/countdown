@@ -12,7 +12,7 @@ import background from "../images/background.png";
 import { SpecialDay } from "../models/SpecialDay";
 
 const RootContainer = styled.div([
-  tw`w-auto min-h-full`,
+  tw`w-auto min-h-full h-full`,
   tw`bg-fixed bg-cover bg-center`,
   `background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.05)), url(${background})`,
 ]);
