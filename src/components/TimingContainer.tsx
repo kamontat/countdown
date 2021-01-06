@@ -30,21 +30,17 @@ const ElementContainer = tw.div`
   flex flex-col md:flex-row flex-1 lg:max-w-screen-lg
 `;
 
-// const Container = tw.div`
-//   w-auto h-full flex items-center justify-center text-center
-//   bg-fixed bg-cover bg-gradient-to-b
-// `;
-
 const TimingContainer = ({ end, interval, output }: TimingContainerProperty) => {
   const [current, setCurrent] = useState(Datetime.timestamp());
   const [diff, setDiff] = useState(end - current);
 
+  const millisecond = interval.ms() ?? 100;
   useEffect(() => {
     const timer = setInterval(() => {
       const newCurrent = Datetime.timestamp();
       setCurrent(newCurrent);
       setDiff(end - newCurrent);
-    }, interval.ms());
+    }, millisecond);
 
     return () => clearInterval(timer);
   });
