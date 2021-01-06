@@ -1,6 +1,6 @@
 {
   "name": "@kamontat/countdown",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "countdown website with configuable via link query",
   "homepage": "https://countdown.kamontat.net",

@@ -1,0 +1,22 @@
+version: 4
+commit:
+  keys:
+    - type: feat
+      value: Introducing new features.
+    - type: perf
+      value: Improving user experience / usability / reliablity.
+    - type: fix
+      value: Fixing a bug.
+    - type: refac
+      value: A code change that neither fixes a bug nor adds a feature.
+    - type: chore
+      value: Other changes that don't modify src or test files.
+  scopes:
+    - type: core
+      value: Core logic in IndexPage
+    - type: models
+      value: Models implementation in models directory
+    - type: ui
+      value: All css and tailwind styles
+    - type: config
+      value: Settings and Configuration
