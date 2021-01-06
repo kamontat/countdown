@@ -22,7 +22,7 @@ const mapper: Record<number, TwStyle> = {
 
 const Container = styled.div([opt => mapper[opt["aria-colcount"] ?? 0] ?? mapper[0], tw`flex justify-center`]);
 
-const CardContainer = styled(GlassilyContainer)([tw`m-2 px-5 py-3 sm:px-8 sm:py-5 md:px-12 md:py-8 lg:px-16 md:py-12`]);
+const CardContainer = styled(GlassilyContainer)([tw`m-2 px-6 py-4 sm:px-8 sm:py-6 md:px-12 md:py-8 lg:px-16 md:py-14`]);
 
 const Number = styled(GlassilyText)([tw`proportional-nums`]);
 
