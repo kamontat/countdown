@@ -16,9 +16,10 @@ const Text = tw.span`
 `;
 
 const Header = ({ name, timestamp }: HeaderProperty) => {
+  document.title = `${name} | Timing`;
   return (
     <Container>
-      <Text>{name}</Text>
+      <Text></Text>
       <Text>{timestamp}</Text>
     </Container>
   );
