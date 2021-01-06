@@ -42,6 +42,10 @@ class SpecialDay {
     this.logger.debug("loading db size: %d", this.sday.size);
   }
 
+  getName(key: string): string {
+    return this.sday.get(key)?.name ?? "";
+  }
+
   has(key: string): boolean {
     return this.sday.has(key);
   }

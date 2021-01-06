@@ -46,12 +46,8 @@ class Datetime {
     return now().valueOf();
   }
 
-  static now() {
-    return new Datetime(now());
-  }
-
   static ms(ms: number) {
-    return new Datetime(dayjs(ms));
+    return new Datetime("timestamp", dayjs(ms));
   }
 
   // FIXME: This should return only `DurationPlugin.Duration`, but PR iamkun/dayjs#1317 must be resolved first
@@ -62,25 +58,30 @@ class Datetime {
   }
 
   static new(specialDay: SpecialDay, input: string, format?: string | null) {
-    const build = () => {
+    const build = (): { name: string; datetime: dayjs.Dayjs } => {
       const i = input.toLowerCase();
 
-      if (specialDay.has(i)) return specialDay.modify(i, now());
-      else if (i === "now") return now();
-      else if (i === "endyear") return endYear();
-      else if (i === "startyear") return startYear();
-      else if (i === "endmonth") return endMonth();
-      else if (i === "startmonth") return startMonth();
-      else if (format) return dayjs(input, format);
-      else return dayjs(input);
+      if (specialDay.has(i)) return { name: specialDay.getName(i), datetime: specialDay.modify(i, now()) };
+      else if (i === "now") return { name: "Now", datetime: now() };
+      else if (i === "endyear") return { name: "End Year", datetime: endYear() };
+      else if (i === "startyear") return { name: "Start Year", datetime: startYear() };
+      else if (i === "endmonth") return { name: "End Month", datetime: endMonth() };
+      else if (i === "startmonth") return { name: "Start Month", datetime: startMonth() };
+      else if (format) return { name: format, datetime: dayjs(input, format) };
+      else return { name: "Raw", datetime: dayjs(input) };
     };
 
-    return new Datetime(build());
+    const o = build();
+    return new Datetime(o.name, o.datetime);
   }
 
   private d: dayjs.Dayjs;
-  constructor(d: dayjs.Dayjs) {
+  constructor(private _name: string, d: dayjs.Dayjs) {
     this.d = d.isValid() ? d : dayjs();
+  }
+
+  get name() {
+    return this._name;
   }
 
   diff(d: Datetime) {
