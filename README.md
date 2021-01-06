@@ -4,6 +4,8 @@
   - [Date format](#date-format)
   - [Interval format](#interval-format)
   - [Example](#example)
+- [Contributions](#contributions)
+  - [Deployment](#deployment)
 
 ## Usage
 
@@ -35,6 +37,15 @@ Accepted interval will be formatted as `<number><unit>` (without any space)
 
 1. https://countdown.kamontat.net?end=endMonth&interval=10ms - count to end of current month and refresh every 10 millisecond
 2. https://countdown.kamontat.net?debug=true&end=2020-02-02&interval=1h - count to **Feb 02, 2020** and refresh every 1 hour
+
+## Contributions
+
+### Deployment
+
+1. run `gitgo changelog --tag <v0.0.0>`
+2. run `git commit -m "chore: release v0.0.0"`
+3. run `git tag v0.0.0`
+4. run `git push && git push --tags`
 
 <!-- LINK -->
 [ex-dayjs-format]: https://day.js.org/docs/en/parse/string-format#list-of-all-available-parsing-tokens
