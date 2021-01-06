@@ -46,12 +46,16 @@ class SpecialDay {
     return this.sday.has(key);
   }
 
+  private isExist(n?: number | null) {
+    return n !== undefined && n !== null && n !== -1;
+  }
+
   modify(key: string, datetime: dayjs.Dayjs): dayjs.Dayjs {
     if (this.has(key)) {
       const modifier: SpecialDayElement = this.sday.get(key) as SpecialDayElement;
-      this.logger.debug("modifier object: %o", modifier);
+      this.logger.debug("received modifier object: %o", modifier);
 
-      return new Modifier<dayjs.Dayjs, number>(datetime, n => n !== -1)
+      const newDatetime = new Modifier<dayjs.Dayjs, number>(datetime, this.isExist)
         .modify(modifier.calendar.year, (d, n) => d.set("year", n))
         .modify(modifier.calendar.month, (d, n) => d.set("month", n - 1))
         .modify(modifier.calendar.date, (d, n) => d.set("date", n))
@@ -60,6 +64,29 @@ class SpecialDay {
         .modify(modifier.calendar.second, (d, n) => d.set("second", n))
         .modify(modifier.calendar.millisecond, (d, n) => d.set("millisecond", n))
         .get();
+
+      this.logger.debug("received new datetime: %s", newDatetime.toString());
+
+      let finalDatetime = newDatetime;
+      let count = 0;
+      while (!finalDatetime.isAfter(datetime)) {
+        count === 0 && this.logger.debug("On modify...");
+        if (count > 50) {
+          this.logger.error("reach timeout, cannot modified (%s)", finalDatetime);
+          break;
+        }
+
+        if (!this.isExist(modifier.calendar.year)) {
+          this.logger.debug("step %d: Add one more year", count);
+          finalDatetime = finalDatetime.add(1, "year");
+        }
+
+        count++;
+      }
+
+      this.logger.debug("received modified datetime: %s", finalDatetime.toString());
+
+      return finalDatetime;
     }
     return datetime;
   }
