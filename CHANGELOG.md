@@ -2,6 +2,27 @@
 ## [Unreleased]
 
 
+<a name="v0.4.0"></a>
+## [v0.4.0] - 2021-01-06
+### Feature
+- **model:** expose special day name to Datetime object
+- **ui:** add date name to website header
+
+### Fixes Bug
+- **perf:** reduce loading size
+- **ui:** open new tab when click on the link
+- **ui:** add more padding on card in mobile device
+
+### Improving performance
+- **core:** pass endDate as object to use name of date
+- **model:** rollback date if not shiftable, add support date and month shift
+- **ui:** move date name to page title
+
+### Pull Requests
+- Merge pull request [#7](https://github.com/kamontat/countdown/issues/7) from kamontat/dependabot/npm_and_yarn/ini-1.3.8
+- Merge pull request [#2](https://github.com/kamontat/countdown/issues/2) from kamontat/dependabot/npm_and_yarn/node-notifier-8.0.1
+
+
 <a name="v0.3.1"></a>
 ## [v0.3.1] - 2021-01-06
 ### Fixes Bug
@@ -47,5 +68,6 @@
 - Merge pull request [#1](https://github.com/kamontat/countdown/issues/1) from kamontat/dependabot/github_actions/actions/setup-node-v2.1.4
 
 
-[Unreleased]: https://github.com/kamontat/countdown/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/kamontat/countdown/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/kamontat/countdown/compare/v0.3.1...v0.4.0
 [v0.3.1]: https://github.com/kamontat/countdown/compare/v0.3.0...v0.3.1
