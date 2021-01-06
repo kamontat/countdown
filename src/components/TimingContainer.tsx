@@ -23,7 +23,7 @@ const RootContainer = tw.div`
 
 const Container = tw.div`
   h-full flex items-center justify-center
-  m-4
+  m-2
 `;
 
 const ElementContainer = tw.div`
