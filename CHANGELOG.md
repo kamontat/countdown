@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.3.1"></a>
+## [v0.3.1] - 2021-01-06
+### Fixes Bug
+- **ui:** tmp fixed negative duration (iamkun/dayjs[#1317](https://github.com/kamontat/countdown/issues/1317))
+
+
 <a name="v0.3.0"></a>
 ## v0.3.0 - 2021-01-06
 ### Feature
@@ -41,4 +47,5 @@
 - Merge pull request [#1](https://github.com/kamontat/countdown/issues/1) from kamontat/dependabot/github_actions/actions/setup-node-v2.1.4
 
 
-[Unreleased]: https://github.com/kamontat/countdown/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/kamontat/countdown/compare/v0.3.1...HEAD
+[v0.3.1]: https://github.com/kamontat/countdown/compare/v0.3.0...v0.3.1

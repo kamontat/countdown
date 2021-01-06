@@ -54,8 +54,11 @@ class Datetime {
     return new Datetime(dayjs(ms));
   }
 
-  static diff(ms: number) {
-    return dayjs.duration(ms);
+  // FIXME: This should return only `DurationPlugin.Duration`, but PR iamkun/dayjs#1317 must be resolved first
+  // PR: https://github.com/iamkun/dayjs/pull/1317
+  static diff(ms: number): { d: DurationPlugin.Duration; negative: boolean } {
+    if (ms < 0) return { d: dayjs.duration(Math.abs(ms)), negative: true };
+    return { d: dayjs.duration(ms), negative: false };
   }
 
   static new(specialDay: SpecialDay, input: string, format?: string | null) {
