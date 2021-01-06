@@ -32,10 +32,10 @@ const IndexPage = () => {
     specialDay,
     query.get("end") ?? query.get("endDate") ?? "endYear",
     query.get("format") ?? query.get("formatter")
-  ).ms();
+  );
   const output = new Output(query.get("output"));
 
-  logger.debug("initial end date as %o", endDate);
+  logger.debug("initial end date as %o", endDate.ms());
   logger.debug("initial interval as %o (%o)", interval, interval.ms());
   logger.debug("initial output   as %o", output);
 

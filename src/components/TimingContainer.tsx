@@ -12,7 +12,7 @@ import { Header } from "./Header";
 import { TimingElement } from "./TimingElement";
 
 interface TimingContainerProperty extends Property {
-  end: number;
+  end: Datetime;
   interval: Interval;
   output: Output;
 }
@@ -32,14 +32,14 @@ const ElementContainer = tw.div`
 
 const TimingContainer = ({ end, interval, output }: TimingContainerProperty) => {
   const [current, setCurrent] = useState(Datetime.timestamp());
-  const [diff, setDiff] = useState(end - current);
+  const [diff, setDiff] = useState(end.ms() - current);
 
   const millisecond = interval.ms() ?? 100;
   useEffect(() => {
     const timer = setInterval(() => {
       const newCurrent = Datetime.timestamp();
       setCurrent(newCurrent);
-      setDiff(end - newCurrent);
+      setDiff(end.ms() - newCurrent);
     }, millisecond);
 
     return () => clearInterval(timer);
@@ -49,7 +49,7 @@ const TimingContainer = ({ end, interval, output }: TimingContainerProperty) => 
   const size = outputs.length;
   return (
     <RootContainer>
-      <Header timestamp={current} />
+      <Header name={end.name} timestamp={current} />
       <Container>
         <ElementContainer>
           {outputs.map(o => (
