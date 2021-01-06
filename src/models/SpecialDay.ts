@@ -67,16 +67,23 @@ class SpecialDay {
 
       this.logger.debug("received new datetime: %s", newDatetime.toString());
 
-      let finalDatetime = newDatetime;
+      let finalDatetime = newDatetime.clone();
       let count = 0;
       while (!finalDatetime.isAfter(datetime)) {
         count === 0 && this.logger.debug("On modify...");
         if (count > 50) {
           this.logger.error("reach timeout, cannot modified (%s)", finalDatetime);
+          finalDatetime = newDatetime.clone();
           break;
         }
 
-        if (!this.isExist(modifier.calendar.year)) {
+        if (!this.isExist(modifier.calendar.date)) {
+          this.logger.debug("step %d: Add one more day", count);
+          finalDatetime = finalDatetime.add(1, "day");
+        } else if (!this.isExist(modifier.calendar.month)) {
+          this.logger.debug("step %d: Add one more month", count);
+          finalDatetime = finalDatetime.add(1, "month");
+        } else if (!this.isExist(modifier.calendar.year)) {
           this.logger.debug("step %d: Add one more year", count);
           finalDatetime = finalDatetime.add(1, "year");
         }
