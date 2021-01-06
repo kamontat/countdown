@@ -5,7 +5,6 @@ export const GlassilyContainer = styled.div([
   tw`flex flex-col justify-center items-center`,
   tw`h-auto w-full`,
   tw`relative z-10`,
-  tw`m-4 px-10 py-6 md:px-12 md:py-8 lg:px-16 md:py-12`,
   tw`shadow-xl rounded-xl overflow-hidden`,
   `background: inherit;`,
   `&:before {
