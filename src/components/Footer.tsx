@@ -11,7 +11,10 @@ const Footer = () => {
         {pjson.author.url}
       </a>
       <br />
-      {pjson.name} v{pjson.version}
+      <a tw="text-indigo-300 hover:text-indigo-900" href={pjson.repository.url}>
+        {pjson.name}
+      </a>{" "}
+      v{pjson.version}
     </span>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "@kamontat/countdown",
-  "version": "0.1.1",
+  "version": "0.3.1",
   "private": true,
   "description": "countdown website with configuable via link query",
   "homepage": "https://countdown.kamontat.net",
@@ -8,6 +8,11 @@
     "name": "Kamontat Chantrachirathumrong",
     "url": "https://kamontat.net",
     "email": "developer@kamontat.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamontat/countdown",
+    "directory": "."
   },
   "dependencies": {
     "@emotion/react": "11.1.4",

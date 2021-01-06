@@ -4,6 +4,7 @@ import UTCPlugin from "dayjs/plugin/utc";
 import TimezonePlugin from "dayjs/plugin/timezone";
 import CustomFormatPlugin from "dayjs/plugin/customParseFormat";
 import RelativeTimePlugin from "dayjs/plugin/relativeTime";
+import { SpecialDay } from "./SpecialDay";
 
 dayjs.extend(DurationPlugin);
 dayjs.extend(UTCPlugin);
@@ -53,17 +54,23 @@ class Datetime {
     return new Datetime(dayjs(ms));
   }
 
-  static diff(ms: number) {
-    return dayjs.duration(ms);
+  // FIXME: This should return only `DurationPlugin.Duration`, but PR iamkun/dayjs#1317 must be resolved first
+  // PR: https://github.com/iamkun/dayjs/pull/1317
+  static diff(ms: number): { d: DurationPlugin.Duration; negative: boolean } {
+    if (ms < 0) return { d: dayjs.duration(Math.abs(ms)), negative: true };
+    return { d: dayjs.duration(ms), negative: false };
   }
 
-  static new(input: string, format?: string | null) {
+  static new(specialDay: SpecialDay, input: string, format?: string | null) {
     const build = () => {
-      if (input.toLowerCase() === "now") return now();
-      else if (input.toLowerCase() === "endyear") return endYear();
-      else if (input.toLowerCase() === "startyear") return startYear();
-      else if (input.toLowerCase() === "endmonth") return endMonth();
-      else if (input.toLowerCase() === "startmonth") return startMonth();
+      const i = input.toLowerCase();
+
+      if (specialDay.has(i)) return specialDay.modify(i, now());
+      else if (i === "now") return now();
+      else if (i === "endyear") return endYear();
+      else if (i === "startyear") return startYear();
+      else if (i === "endmonth") return endMonth();
+      else if (i === "startmonth") return startMonth();
       else if (format) return dayjs(input, format);
       else return dayjs(input);
     };

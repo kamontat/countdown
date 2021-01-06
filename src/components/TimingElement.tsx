@@ -20,11 +20,9 @@ const mapper: Record<number, TwStyle> = {
   6: tw`md:w-1/6`,
 };
 
-const Container = styled.div([
-  opt => mapper[opt["aria-colcount"] ?? 0] ?? mapper[0],
-  tw`mx-1 my-2 md:m-0`,
-  tw`flex justify-center`,
-]);
+const Container = styled.div([opt => mapper[opt["aria-colcount"] ?? 0] ?? mapper[0], tw`flex justify-center`]);
+
+const CardContainer = styled(GlassilyContainer)([tw`m-2 px-5 py-3 sm:px-8 sm:py-5 md:px-12 md:py-8 lg:px-16 md:py-12`]);
 
 const Number = styled(GlassilyText)([tw`proportional-nums`]);
 
@@ -32,14 +30,16 @@ const Unit = styled(GlassilyText)([tw`font-bold`]);
 
 const TimingElement = ({ output, size }: TimingElementProperty) => {
   const formatNumber = (n: number, digit: number) => {
+    if (n < 0) return "-" + String(Math.abs(n)).padStart(digit, "0");
     return String(n).padStart(digit, "0");
   };
+
   return (
     <Container aria-colcount={size}>
-      <GlassilyContainer>
+      <CardContainer>
         <Number>{formatNumber(output.number, output.digit)}</Number>
         <Unit>{output.unit}</Unit>
-      </GlassilyContainer>
+      </CardContainer>
     </Container>
   );
 };
