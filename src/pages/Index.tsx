@@ -25,7 +25,7 @@ const IndexPage = () => {
   const logger = new Logger("page", "index");
   logger.debug("rendering");
 
-  const interval = new Interval(query.get("interval") ?? "100ms");
+  const interval = new Interval(query.get("interval"));
 
   const specialDay = new SpecialDay();
   const endDate = Datetime.new(
@@ -36,7 +36,7 @@ const IndexPage = () => {
   const output = new Output(query.get("output"));
 
   logger.debug("initial end date as %o", endDate);
-  logger.debug("initial interval as %o", interval);
+  logger.debug("initial interval as %o (%o)", interval, interval.ms());
   logger.debug("initial output   as %o", output);
 
   return (
