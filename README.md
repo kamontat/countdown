@@ -42,10 +42,16 @@ Accepted interval will be formatted as `<number><unit>` (without any space)
 
 ### Deployment
 
-1. run `gitgo changelog --tag <v0.0.0>`
-2. run `git commit -m "chore: release v0.0.0"`
-3. run `git tag v0.0.0`
-4. run `git push && git push --tags`
+Automatic steps
+1. update **package.json** version
+2. run `bash deploy.sh`
+
+Manually steps
+1. update **package.json** version
+2. run `gitgo changelog --tag <v0.0.0>`
+3. run `git commit -m "chore: release v0.0.0"`
+4. run `git tag v0.0.0`
+5. run `git push && git push --tags`
 
 <!-- LINK -->
 [ex-dayjs-format]: https://day.js.org/docs/en/parse/string-format#list-of-all-available-parsing-tokens
