@@ -2,6 +2,19 @@
 ## [Unreleased]
 
 
+<a name="v0.4.2"></a>
+## [v0.4.2] - 2021-01-07
+### Feature
+- **ui:** add `progressive web app` supported
+
+### Improving performance
+- **core:** implement logger with logging object to support debug mode
+- **core:** remove all console.log in service worker registration
+
+### Pull Requests
+- Merge pull request [#8](https://github.com/kamontat/countdown/issues/8) from kamontat/add-license-1
+
+
 <a name="v0.4.0"></a>
 ## [v0.4.0] - 2021-01-06
 ### Feature
@@ -68,6 +81,7 @@
 - Merge pull request [#1](https://github.com/kamontat/countdown/issues/1) from kamontat/dependabot/github_actions/actions/setup-node-v2.1.4
 
 
-[Unreleased]: https://github.com/kamontat/countdown/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/kamontat/countdown/compare/v0.4.2...HEAD
+[v0.4.2]: https://github.com/kamontat/countdown/compare/v0.4.0...v0.4.2
 [v0.4.0]: https://github.com/kamontat/countdown/compare/v0.3.1...v0.4.0
 [v0.3.1]: https://github.com/kamontat/countdown/compare/v0.3.0...v0.3.1
