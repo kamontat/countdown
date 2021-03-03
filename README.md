@@ -14,7 +14,8 @@ The website already deployed to https://countdown.kamontat.net via Github Pages.
 1. `end` - Finish date (default = end of current year) [format](#date-format)
 2. `format` - Custom format of `end` (default = null) [format][ex-dayjs-format]
 3. `interval` - Refresh rate (default = 100 ms) [format](#interval-format)
-4. `debug` - Open debug log (default = false)
+4. `output` - formatting output panel [format](#output-format)
+5. `debug` - Open debug log (default = false)
 
 ### Date format
 
@@ -32,6 +33,10 @@ Accepted interval will be formatted as `<number><unit>` (without any space)
 
 1. Accepted number is only digit without any dot (.) or comma (,)
 2. Accepted unit is `ms` (millisecond), `s` (second), `m` (minute), and `h` (hour)
+
+### Output format
+
+Output format is listed on [Output.ts][output-ts].
 
 ### Example
 
@@ -55,3 +60,4 @@ Manually steps
 
 <!-- LINK -->
 [ex-dayjs-format]: https://day.js.org/docs/en/parse/string-format#list-of-all-available-parsing-tokens
+[output-ts]: https://github.com/kamontat/countdown/blob/main/src/models/Output.ts
