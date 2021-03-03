@@ -2,6 +2,20 @@
 ## [Unreleased]
 
 
+<a name="v0.5.0"></a>
+## [v0.5.0] - 2021-03-03
+### Improving performance
+- **models:** change how output calculate
+
+### Pull Requests
+- Merge pull request [#14](https://github.com/kamontat/countdown/issues/14) from kamontat/dependabot/npm_and_yarn/web-vitals-1.1.0
+- Merge pull request [#12](https://github.com/kamontat/countdown/issues/12) from kamontat/dependabot/npm_and_yarn/testing-library/react-11.2.3
+- Merge pull request [#13](https://github.com/kamontat/countdown/issues/13) from kamontat/dependabot/npm_and_yarn/dayjs-1.10.3
+- Merge pull request [#3](https://github.com/kamontat/countdown/issues/3) from kamontat/dependabot/npm_and_yarn/types/react-17.0.0
+- Merge pull request [#6](https://github.com/kamontat/countdown/issues/6) from kamontat/dependabot/npm_and_yarn/types/react-dom-17.0.0
+- Merge pull request [#4](https://github.com/kamontat/countdown/issues/4) from kamontat/dependabot/npm_and_yarn/types/node-14.14.20
+
+
 <a name="v0.4.2"></a>
 ## [v0.4.2] - 2021-01-07
 ### Feature
@@ -81,7 +95,8 @@
 - Merge pull request [#1](https://github.com/kamontat/countdown/issues/1) from kamontat/dependabot/github_actions/actions/setup-node-v2.1.4
 
 
-[Unreleased]: https://github.com/kamontat/countdown/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/kamontat/countdown/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/kamontat/countdown/compare/v0.4.2...v0.5.0
 [v0.4.2]: https://github.com/kamontat/countdown/compare/v0.4.0...v0.4.2
 [v0.4.0]: https://github.com/kamontat/countdown/compare/v0.3.1...v0.4.0
 [v0.3.1]: https://github.com/kamontat/countdown/compare/v0.3.0...v0.3.1
