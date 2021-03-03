@@ -2,14 +2,22 @@ import DurationPlugin from "dayjs/plugin/duration";
 import { Datetime } from "./Datetime";
 
 enum OutputType {
-  MILLISECOND, // 1
-  SECOND, // 1
-  WEEK, // 1
-  SECOND_MILLISECOND, // 2
-  MINUTE_SECOND_MILLISECOND, // 3
-  HOUR_MINUTE_SECOND, // 3
-  DAY_HOUR_MINUTE_SECOND, // 4
+  MILLISECOND = "ms", // 1
+  SECOND = "s", // 1
+  WEEK = "w", // 1
+  SECOND_MILLISECOND = "sms", // 2
+  MINUTE_SECOND_MILLISECOND = "msms", // 3
+  HOUR_MINUTE_SECOND = "hms", // 3
+  DAY_HOUR_MINUTE_SECOND = "dhms", // 4
 }
+
+const convert = (name: string | undefined | null): OutputType => {
+  const defaults = OutputType.MINUTE_SECOND_MILLISECOND;
+  if (name === undefined || name === null) return defaults;
+
+  const key = (Object.keys(OutputType) as [keyof typeof OutputType]).find(key => OutputType[key] === name);
+  return key === undefined ? defaults : OutputType[key];
+};
 
 enum TimeUnit {
   YEAR = "y|year",
@@ -47,15 +55,7 @@ const numberUnit = (n: number, u: TimeUnit, opt: NumberOption): OutputObject => 
 class Output {
   private name: OutputType;
   constructor(name: string | null) {
-    if (name === null) this.name = OutputType.MINUTE_SECOND_MILLISECOND;
-    else if (name === "ms") this.name = OutputType.MILLISECOND;
-    else if (name === "s") this.name = OutputType.SECOND;
-    else if (name === "w") this.name = OutputType.WEEK;
-    else if (name === "sms") this.name = OutputType.SECOND_MILLISECOND;
-    else if (name === "msms") this.name = OutputType.MINUTE_SECOND_MILLISECOND;
-    else if (name === "hms") this.name = OutputType.HOUR_MINUTE_SECOND;
-    else if (name === "dhms") this.name = OutputType.DAY_HOUR_MINUTE_SECOND;
-    else this.name = OutputType.MINUTE_SECOND_MILLISECOND;
+    this.name = convert(name);
   }
 
   format(ms: number): OutputObject[] {
