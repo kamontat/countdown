@@ -4,6 +4,7 @@ import { Datetime } from "./Datetime";
 enum OutputType {
   MILLISECOND = "ms", // 1
   SECOND = "s", // 1
+  DAY = "d", // 1
   WEEK = "w", // 1
   SECOND_MILLISECOND = "sms", // 2
   MINUTE_SECOND_MILLISECOND = "msms", // 3
@@ -69,6 +70,8 @@ class Output {
         return [numberUnit(duration.asMilliseconds(), TimeUnit.MILLISECOND, { digit: 12, negative })];
       case OutputType.SECOND:
         return [numberUnit(duration.asSeconds(), TimeUnit.SECOND, { digit: 9, negative })];
+      case OutputType.DAY:
+        return [numberUnit(duration.asDays(), TimeUnit.DAY, { digit: 7, negative })];
       case OutputType.WEEK:
         return [numberUnit(duration.asWeeks(), TimeUnit.WEEK, { digit: 5, negative })];
       case OutputType.SECOND_MILLISECOND:
